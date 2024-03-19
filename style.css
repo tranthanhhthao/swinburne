@@ -1,0 +1,184 @@
+:root {
+    --red: rgb(218, 39, 39);
+}
+
+body {
+    font-family: 'Work Sans', sans-serif;
+    color: #333;
+}
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+
+}
+
+.header {
+    margin-left: 40%;
+}
+
+.uni-projects {
+    margin-left: 40%;
+    padding-left: 250px;
+
+    margin-top: 170px;
+}
+
+.footer {
+    /* display: none; */
+    text-align: center;
+
+    margin-top: 100px;
+}
+
+.header a {
+    color: #333;
+    font-size: 18px;
+
+    display: block;
+}
+
+.header a:nth-child(1) {
+    transform: rotateZ(-6deg);
+    height: 50px;
+
+    margin-left: 107px;
+    margin-top: 40px;
+    margin-bottom: 200px;
+}
+
+.header a:nth-child(2) {
+    transform: rotateZ(9deg);
+    margin-bottom: 90px;
+
+}
+
+.header h1 {
+    font-size: 38px;
+    font-weight: 400;
+    color: black;
+    
+    margin-bottom: 0;
+}
+
+.header .title span {
+    font-size: 18px;
+}
+
+.header .title span:nth-child(2) {
+    color: var(--red);
+}
+
+.header .aka {
+    position: relative;
+    margin-top: 40px;
+}
+
+.header .aka-squares {
+    
+    display: inline-block;
+    position: relative;
+
+    width: 100px;
+    height: 100px;
+
+    margin: -4px;
+}
+
+.header .aka-squares:nth-child(2) {
+    background-color: black;
+    
+    margin-left: 50px;
+}
+
+.header .aka-squares:nth-child(3) {
+    background-color: var(--red);
+
+}
+
+.header .aka span {
+    font-size: 18px;
+}
+
+.header .aka-squares span {
+    color: white;
+    margin-left: 5px;
+    position: absolute;
+}
+
+#adj {
+    bottom: 5px;
+}
+
+#aka-click {
+    position: absolute;
+    display: block;
+    text-decoration: underline;
+
+    top: 0;
+    cursor: pointer;
+}
+
+.uni-projects h2 {
+    color: #838383;
+    font-weight: 400;
+    font-size: 18px;
+
+    margin-bottom: 100px;
+}
+
+.uni-projects .term span:nth-child(1) {
+    background-color: black;
+    color: white;
+    padding: 0 12px;
+
+}
+
+.uni-projects .term span:nth-child(2) {
+    background-color: var(--red);
+    color: black;
+    font-weight: 800;
+    padding: 0 4px;
+}
+
+.uni-projects .course a {
+    color: #333;
+    font-size: 18px;
+}
+
+.uni-projects .course p {
+    padding-top: 7px;
+    margin-left: 10px;
+}
+
+@media screen and (max-width: 991px) {
+    .header {
+        margin-left: 30%;
+    }
+
+    .uni-projects {
+        margin-left: 30%;
+    }
+} 
+
+@media screen and (max-width: 767px) {
+    .header {
+        margin-left: 30%;
+    }
+
+    .uni-projects {
+        margin-left: 30%;
+        padding-left: 150px;
+    }
+}
+
+@media screen and (max-width: 479px) {
+    .header {
+        margin-left: 15%;
+    }
+
+    .uni-projects {
+        margin-left: 30%;
+        padding-left: 0;
+    }
+}
