@@ -33,3 +33,16 @@ akaClick.addEventListener('click', () => {
     atWhat.innerHTML = me[counter].atWhat
 })
 
+// hover
+const emojiEmail = document.getElementById('emoji-email');
+const email = document.getElementById('email');
+
+email.addEventListener('mousemove', (e) => {
+    emojiEmail.style.display = 'block';
+    emojiEmail.style.left = e.clientX + 'px';
+    emojiEmail.style.top = e.clientY + 'px';
+})
+
+email.addEventListener('mouseleave', (e) => {
+    emojiEmail.style.display = 'none';
+})

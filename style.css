@@ -11,7 +11,11 @@ body {
 * {
     margin: 0;
     box-sizing: border-box;
+}
 
+a:hover {
+    text-decoration: none;
+    cursor: pointer;
 }
 
 .header {
@@ -37,6 +41,8 @@ body {
     font-size: 18px;
 
     display: block;
+    /* background-color: #838383; */
+    width: fit-content;
 }
 
 .header a:nth-child(1) {
@@ -45,13 +51,49 @@ body {
 
     margin-left: 107px;
     margin-top: 40px;
-    margin-bottom: 200px;
+    margin-bottom: 100px;
 }
 
 .header a:nth-child(2) {
     transform: rotateZ(9deg);
     margin-bottom: 90px;
 
+}
+
+.emoji {
+    width: 40px;
+    top: 0;
+    left: 0;
+    display: none;
+    position: fixed;
+    z-index: 3;
+
+    transition: 0.2s ease;
+    transform: translate(-50%, -130%);
+    animation: wiggle 2s infinite;
+}
+
+@keyframes wiggle {
+    0% {
+        transform: translate(-80%, -130%);
+        rotate: 0;
+    }
+    25% {
+        transform: translate(-50%, -160%);
+        rotate: 45deg;
+    }
+    50% {
+        transform: translate(0%, -130%);
+        rotate: 45deg;
+    }
+    75% {
+        transform: translate(-50%, -160%);
+        rotate: 0;
+    }
+    100% {
+        transform: translate(-80%, -130%);
+        rotate: 0;
+    }
 }
 
 .header h1 {
@@ -120,12 +162,16 @@ body {
     cursor: pointer;
 }
 
+#aka-click:hover {
+    text-decoration: none;
+}
+
 .uni-projects h2 {
     color: #838383;
     font-weight: 400;
     font-size: 18px;
 
-    margin-bottom: 100px;
+    margin-bottom: 50px;
 }
 
 .uni-projects .term span:nth-child(1) {
@@ -142,15 +188,65 @@ body {
     padding: 0 4px;
 }
 
-.uni-projects .course a {
+.uni-projects .class label {
     color: #333;
     font-size: 18px;
+    padding-top: 12px;
+    margin-left: 10px;
+    text-decoration: none;
+    cursor: pointer;
 }
 
-.uni-projects .course p {
-    padding-top: 7px;
-    margin-left: 10px;
+.class {
+    margin-top: 2px;
 }
+
+.uni-projects .class label:hover {
+    text-decoration: underline;
+}
+
+
+.asm-list {
+    display: none;
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
+.class input[type="checkbox"]:checked ~ .asm-list {
+    display: block;
+} 
+
+.asm-list li {
+    font-size: 16px;
+    list-style-type: none;
+    /* border: 1px solid #ccc; */
+    max-width: fit-content;    
+}
+
+.asm-list a {
+    color: #333;
+    text-decoration: none;
+}
+
+.asm-list a:hover {
+    text-decoration: underline;
+}
+
+.asm-list svg {
+    display: none;
+    position: relative;
+    top: 4px;
+    left: -3px;
+    margin: 0;
+}
+
+.asm-list a:hover ~ svg {
+    display: inline-block;
+}
+
+
 
 @media screen and (max-width: 991px) {
     .header {
@@ -168,7 +264,7 @@ body {
     }
 
     .uni-projects {
-        margin-left: 30%;
+        margin-left: 10%;
         padding-left: 150px;
     }
 }
@@ -179,7 +275,7 @@ body {
     }
 
     .uni-projects {
-        margin-left: 30%;
+        margin-left: 10%;
         padding-left: 0;
     }
 }
