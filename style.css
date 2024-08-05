@@ -1,5 +1,7 @@
 :root {
     --red: rgb(218, 39, 39);
+    --PA: #F78E26;
+    --DI: #COED56;
 }
 
 body {
@@ -207,6 +209,7 @@ a:hover {
 
 
 .asm-list {
+    position: relative;
     display: none;
 }
 
@@ -219,7 +222,7 @@ input[type="checkbox"] {
 } 
 
 .asm-list li {
-    font-size: 16px;
+    font-size: 15px;
     list-style-type: none;
     /* border: 1px solid #ccc; */
     max-width: fit-content;    
@@ -246,7 +249,30 @@ input[type="checkbox"] {
     display: inline-block;
 }
 
+.asm-list a::before {
+    position: relative;
+    content: attr(data-grade);
+    z-index: 1;
 
+    font-size: 14px;
+    font-weight: 600;
+    background-color: #ccc;
+    top: 0;
+    /* margin-left: 40px; */
+    padding: 2px 3px;
+
+    align-items: end;
+    text-align: right;
+
+    visibility: hidden;
+    display: none;
+
+}
+
+.asm-list a:hover::before {
+    visibility: visible;
+    display: inline;
+}
 
 @media screen and (max-width: 991px) {
     .header {
