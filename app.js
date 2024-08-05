@@ -34,15 +34,15 @@ akaClick.addEventListener('click', () => {
 })
 
 // hover
-const emojiEmail = document.getElementById('emoji-email');
-const email = document.getElementById('email');
+// const emojiEmail = document.getElementById('emoji-email');
+// const email = document.getElementById('email');
 
-email.addEventListener('mousemove', (e) => {
-    emojiEmail.style.display = 'block';
-    emojiEmail.style.left = e.clientX + 'px';
-    emojiEmail.style.top = e.clientY + 'px';
-})
+// email.addEventListener('mousemove', (e) => {
+//     emojiEmail.style.display = 'block';
+//     emojiEmail.style.left = e.clientX + 'px';
+//     emojiEmail.style.top = e.clientY + 'px';
+// })
 
-email.addEventListener('mouseleave', (e) => {
-    emojiEmail.style.display = 'none';
-})
+// email.addEventListener('mouseleave', (e) => {
+//     emojiEmail.style.display = 'none';
+// })

@@ -47,55 +47,60 @@ a:hover {
     width: fit-content;
 }
 
-.header a:nth-child(1) {
-    transform: rotateZ(-6deg);
-    height: 50px;
-
-    margin-left: 107px;
-    margin-top: 40px;
+.info-link:has(#emoji-linktree) {
+    position: relative;
+    /* background-color: #F78E26; */
+    width: fit-content;
+    margin-top: 60px;
     margin-bottom: 100px;
+    rotate: -10deg;
+    left: 80px;
+
 }
 
-.header a:nth-child(2) {
-    transform: rotateZ(9deg);
-    margin-bottom: 90px;
-
+.info-link:has(#emoji-email) {
+    position: relative;
+    /* background-color: #F78E26; */
+    width: fit-content;
+    margin-top: 150px;
+    margin-bottom: 100px;
+    rotate: 10deg;
 }
 
 .emoji {
     width: 40px;
-    top: 0;
+    top: -40px;
     left: 0;
     display: none;
-    position: fixed;
+    position: absolute;
     z-index: 3;
 
     transition: 0.2s ease;
-    transform: translate(-50%, -130%);
-    animation: wiggle 2s infinite;
+    /* transform: translate(-50%, -130%); */
+    animation: run 3s infinite;
 }
 
-@keyframes wiggle {
+#emoji-linktree {
+    top: 10px;
+}
+
+@keyframes run {
     0% {
-        transform: translate(-80%, -130%);
-        rotate: 0;
-    }
-    25% {
-        transform: translate(-50%, -160%);
-        rotate: 45deg;
-    }
-    50% {
-        transform: translate(0%, -130%);
-        rotate: 45deg;
-    }
-    75% {
-        transform: translate(-50%, -160%);
-        rotate: 0;
+        left: 0;
+        opacity: 1;
     }
     100% {
-        transform: translate(-80%, -130%);
-        rotate: 0;
+        left: 100%;
+        opacity: 0;
     }
+}
+
+#linktree:hover ~ #emoji-linktree {
+    display: block;
+}
+
+#email:hover ~ #emoji-email {
+    display: block;
 }
 
 .header h1 {
