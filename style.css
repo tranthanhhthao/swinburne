@@ -34,8 +34,10 @@ a:hover {
 .footer {
     /* display: none; */
     text-align: center;
-
+    justify-content: center;
     margin-top: 100px;
+    width: 100vw;
+    /* background-color: #F78E26; */
 }
 
 .header a {
@@ -291,18 +293,19 @@ input[type="checkbox"] {
 
 @media screen and (max-width: 767px) {
     .header {
-        margin-left: 30%;
+        margin-left: 15%;
     }
 
     .uni-projects {
-        margin-left: 10%;
-        padding-left: 150px;
+        margin-left: 15%;
+        padding-left: 0;
+        /* padding-left: 150px; */
     }
 }
 
 @media screen and (max-width: 479px) {
     .header {
-        margin-left: 15%;
+        margin-left: 10%;
     }
 
     .uni-projects {
