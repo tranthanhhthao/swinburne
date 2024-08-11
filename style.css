@@ -22,6 +22,7 @@ a:hover {
 
 .header {
     margin-left: 40%;
+    margin-top: 200px;
 }
 
 .uni-projects {
@@ -36,6 +37,7 @@ a:hover {
     text-align: center;
     justify-content: center;
     margin-top: 100px;
+    margin-bottom: 10px;
     width: 100vw;
     /* background-color: #F78E26; */
 }
@@ -47,6 +49,35 @@ a:hover {
     display: block;
     /* background-color: #838383; */
     width: fit-content;
+
+}
+
+.contact {
+    position: fixed;
+    bottom: 0;
+
+    margin: 20px;
+
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #333;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact:active {
+    background-color: black;
+}
+
+.contact a {
+    display: block;
+    position: absolute;
+    width: 30px;
+    top: 15px;
+    left: 13px;
 }
 
 .info-link:has(#emoji-linktree) {
@@ -61,17 +92,60 @@ a:hover {
 }
 
 .info-link:has(#emoji-email) {
+    display: none;
+    
     position: relative;
     /* background-color: #F78E26; */
     width: fit-content;
-    margin-top: 150px;
+    margin-top: 10px;
     margin-bottom: 100px;
-    rotate: 10deg;
+    /* rotate: 10deg; */
+
+    border: 1px solid rgb(153, 153, 153);
+    background-color: #333;
+    border-radius: 25px;
+    padding: 8px 20px 7px 35px;
+
+    
+}
+
+.info-link:has(#emoji-email)::before {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #23c03d;
+    border-radius: 50%;
+
+    top: 11px;
+    left: 13px;
+
+    animation: blinking 1s infinite;
+    transition: opacity 1s ease;
+}
+
+@keyframes blinking {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.2;
+    }
+}
+
+.info-link a {
+    text-decoration: none;
+    font-size: 0.9rem;
+    color: white;
+}
+
+.info-link:hover {
+    background-color: #333;
 }
 
 .emoji {
     width: 40px;
-    top: -40px;
+    top: 0;
     left: 0;
     display: none;
     position: absolute;
@@ -218,6 +292,7 @@ a:hover {
 .asm-list {
     position: relative;
     display: none;
+    margin-bottom: 5px;
 }
 
 input[type="checkbox"] {
@@ -233,6 +308,7 @@ input[type="checkbox"] {
     list-style-type: none;
     /* border: 1px solid #ccc; */
     max-width: fit-content;    
+    margin-top: 4px;
 }
 
 .asm-list a {
@@ -279,6 +355,10 @@ input[type="checkbox"] {
 .asm-list a:hover::before {
     visibility: visible;
     display: inline;
+}
+
+.footer a {
+    color: #333;
 }
 
 @media screen and (max-width: 991px) {
