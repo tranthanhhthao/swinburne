@@ -72,3 +72,43 @@ buttonProjects.addEventListener('click', () => {
     delayToLink('https://tranthanhhthao.github.io/swinburne-projects/')
 });    
 
+// button hover
+const btnWrappers = gsap.utils.toArray('.button-wrapper');
+const btns = gsap.utils.toArray('.nav');
+
+// mouse move 
+function activateMagneto(event, element) {
+    let boundBox = element.getBoundingClientRect();
+    const magnetoStrength = 50;
+
+    const newX = ((event.clientX - boundBox.left)/(boundBox.width) - 0.5)
+    const newY = ((event.clientY - boundBox.top)/(boundBox.height) - 0.5)
+
+    gsap.to(element, {
+        x: newX * magnetoStrength,
+        y: newY * magnetoStrength,
+        duration: 0.2,
+        ease: 'power1.inOut'
+    });                    
+}
+
+// mouse leave 
+function resetMagneto(event, element) {
+    gsap.to(element, {
+        x: 0,
+        y: 0,
+        duration: 2,
+        ease: 'elastic.out(1, 0.3)'
+    });
+}
+
+// Add event listeners
+btnWrappers.forEach(btnWrapper => {
+    btnWrapper.addEventListener('mousemove', (e) => {
+        activateMagneto(e, btnWrapper.querySelector('.nav'));
+    });
+
+    btnWrapper.addEventListener('mouseleave', (e) => {
+        resetMagneto(e, btnWrapper.querySelector('.nav'));
+    })
+})
