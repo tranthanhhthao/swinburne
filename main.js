@@ -83,8 +83,8 @@ function activateMagneto(event, wrapper, element) {
     let boundBoxWrapper = wrapper.getBoundingClientRect();
     const magnetoStrength = 55;
 
-    const newX = ((event.clientX - boundBoxWrapper.left)/(boundBoxWrapper.width) - 0.5)
-    const newY = ((event.clientY - boundBoxWrapper.top)/(boundBoxWrapper.height) - 0.5)
+    const newX = ((event.clientX - boundBoxWrapper.left)/(wrapper.offsetWidth) - 0.5)
+    const newY = ((event.clientY - boundBoxWrapper.top)/(wrapper.offsetHeight) - 0.5)
 
     dbgr.innerHTML = 'cursorX: ' + event.clientX
                     + '<br>boxLeft: ' + Math.ceil(boundBox.left)  
@@ -98,15 +98,7 @@ function activateMagneto(event, wrapper, element) {
         y: newY * magnetoStrength,
         duration: 0.2,
         ease: 'power1.inOut'
-    });   
-    
-
-    // gsap.to(element, {
-    //     x: newX * magnetoStrength,
-    //     y: newY * magnetoStrength,
-    //     duration: 0.2,
-    //     ease: 'power1.inOut'
-    // });                    
+    });          
 }
 
 // mouse leave 
