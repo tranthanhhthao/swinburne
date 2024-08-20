@@ -75,25 +75,42 @@ buttonProjects.addEventListener('click', () => {
 // button hover
 const btnWrappers = gsap.utils.toArray('.button-wrapper');
 const btns = gsap.utils.toArray('.nav');
+const dbgr = document.querySelector('.debugger');
 
 // mouse move 
-function activateMagneto(event, element) {
+function activateMagneto(event, wrapper, element) {
     let boundBox = element.getBoundingClientRect();
-    const magnetoStrength = 50;
+    let boundBoxWrapper = wrapper.getBoundingClientRect();
+    const magnetoStrength = 55;
 
-    const newX = ((event.clientX - boundBox.left)/(boundBox.width) - 0.5)
-    const newY = ((event.clientY - boundBox.top)/(boundBox.height) - 0.5)
+    const newX = ((event.clientX - boundBoxWrapper.left)/(boundBoxWrapper.width) - 0.5)
+    const newY = ((event.clientY - boundBoxWrapper.top)/(boundBoxWrapper.height) - 0.5)
+
+    dbgr.innerHTML = 'cursorX: ' + event.clientX
+                    + '<br>boxLeft: ' + Math.ceil(boundBox.left)  
+                    + '<br>cursorInsideZone: ' + Math.ceil(event.clientX - boundBoxWrapper.left)
+                    + '<br>relativeToTotalWidth: ' + ((event.clientX - boundBoxWrapper.left) / boundBoxWrapper.width).toFixed(2)
+                    + '<br>shiftedX: ' + ((event.clientX - boundBoxWrapper.left)/(boundBoxWrapper.width) - 0.5).toFixed(2)
+                    
 
     gsap.to(element, {
         x: newX * magnetoStrength,
         y: newY * magnetoStrength,
         duration: 0.2,
         ease: 'power1.inOut'
-    });                    
+    });   
+    
+
+    // gsap.to(element, {
+    //     x: newX * magnetoStrength,
+    //     y: newY * magnetoStrength,
+    //     duration: 0.2,
+    //     ease: 'power1.inOut'
+    // });                    
 }
 
 // mouse leave 
-function resetMagneto(event, element) {
+function resetMagneto(event, wrapper, element) {
     gsap.to(element, {
         x: 0,
         y: 0,
@@ -105,10 +122,9 @@ function resetMagneto(event, element) {
 // Add event listeners
 btnWrappers.forEach(btnWrapper => {
     btnWrapper.addEventListener('mousemove', (e) => {
-        activateMagneto(e, btnWrapper.querySelector('.nav'));
+        activateMagneto(e, btnWrapper, btnWrapper.querySelector('.nav'));
     });
-
     btnWrapper.addEventListener('mouseleave', (e) => {
-        resetMagneto(e, btnWrapper.querySelector('.nav'));
-    })
+        resetMagneto(e, btnWrapper, btnWrapper.querySelector('.nav'));
+    });
 })
