@@ -1,3 +1,5 @@
+// Intro Effects
+
 const tl = gsap.timeline({ defaults: { ease: "power1.out", duration: 0.4 } });
 
 tl
@@ -23,7 +25,7 @@ tl
         opacity: 1, 
     }, "+=1")
 
-// preloader
+// Preloader
 const buttonContact = document.getElementById('click-contact');
 const buttonProjects = document.getElementById('click-projects');
 
@@ -72,7 +74,7 @@ buttonProjects.addEventListener('click', () => {
     delayToLink('https://tranthanhhthao.github.io/swinburne-projects/')
 });    
 
-// button hover
+// Magneto Button Hover
 const btnWrappers = gsap.utils.toArray('.button-wrapper');
 const btns = gsap.utils.toArray('.nav');
 const dbgr = document.querySelector('.debugger');
@@ -92,7 +94,6 @@ function activateMagneto(event, wrapper, element) {
                     + '<br>relativeToTotalWidth: ' + ((event.clientX - boundBoxWrapper.left) / boundBoxWrapper.width).toFixed(2)
                     + '<br>shiftedX: ' + ((event.clientX - boundBoxWrapper.left)/(boundBoxWrapper.width) - 0.5).toFixed(2)
                     
-
     gsap.to(element, {
         x: newX * magnetoStrength,
         y: newY * magnetoStrength,
@@ -111,12 +112,26 @@ function resetMagneto(event, wrapper, element) {
     });
 }
 
-// Add event listeners
-btnWrappers.forEach(btnWrapper => {
-    btnWrapper.addEventListener('mousemove', (e) => {
-        activateMagneto(e, btnWrapper, btnWrapper.querySelector('.nav'));
-    });
-    btnWrapper.addEventListener('mouseleave', (e) => {
-        resetMagneto(e, btnWrapper, btnWrapper.querySelector('.nav'));
-    });
+// media query
+let mn = gsap.matchMedia();
+
+mn.add({
+    isMobile: '(max-width: 768px)',
+    isDesktop: '(min-width: 769px)'
+}, (context) => {
+
+    let { isMobile, isDesktop } = context.conditions;
+
+    if (isDesktop) {
+        // Add event listeners
+        btnWrappers.forEach(btnWrapper => {
+            btnWrapper.addEventListener('mousemove', (e) => {
+                activateMagneto(e, btnWrapper, btnWrapper.querySelector('.nav'));
+            });
+            btnWrapper.addEventListener('mouseleave', (e) => {
+                resetMagneto(e, btnWrapper, btnWrapper.querySelector('.nav'));
+            });
+        })
+    }    
 })
+
