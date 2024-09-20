@@ -53,7 +53,11 @@ buttonContact.addEventListener('click', () => {
         })
 
     delayToLink('https://tranthanhhthao.github.io/swinburne-contact/')
-
+    
+    preloaderTl
+        .to('.preload', {
+            display: 'none',
+    })
 });
 
 buttonProjects.addEventListener('click', () => {
@@ -72,6 +76,11 @@ buttonProjects.addEventListener('click', () => {
         })
     
     delayToLink('https://tranthanhhthao.github.io/swinburne-projects/')
+
+    preloaderTl
+        .to('.preload', {
+            display: 'none',
+    })
 });    
 
 // Magneto Button Hover
